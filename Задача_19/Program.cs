@@ -5,16 +5,25 @@
 // 23432 -> да
 
 Console.Clear();
+
+int n1 = 0;
+
 Console.Write("Введите пятизначное число: ");
-
-string number = Console.ReadLine();
-int n = number.Length;
-
-if (n == 5)
-    if (number[0] == number[4] && number[1] == number[3])
-        Console.WriteLine($"Да, число {number} является палиндромом");
-    else
-        Console.WriteLine($"Нет, число {number} НЕ является палиндромом");
-
+int n = Convert.ToInt32(Console.ReadLine());
+int temp = n;
+int rev = 0;
+if (n > 9999 && n < 100000)
+{
+    while (n > 0)
+    {
+        n1 = n % 10;
+        rev = rev * 10 + n1;
+         n = n / 10;
+    }
+ if(temp == rev)
+    Console.WriteLine($"Да, число {temp} является палиндромом.");
+ else
+    Console.WriteLine($"Нет, число {temp} НЕ является палиндромом.");
+}
 else
-    Console.WriteLine($"{number} НЕ ПЯТИЗНАЧНОЕ число!");
+Console.WriteLine($"{n} НЕ ПЯТИЗНАЧНОЕ число!");
